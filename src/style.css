@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&display=swap');
+
+:root {
+    --cor-fundo: #1d3927;
+    --cor-itens: #a58630;
+    --cor-itens-secundaria: #80651d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rosarivo', serif;
+}
+
+header {
+    background: url(images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vh;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    text-align: center;
+}
+
+.logo img {
+    max-height: 60vh;
+    width: auto;
+    max-width: 90vw;
+}
+
+#start-button {
+    width: 15em;
+    height: 7.5vh;
+    background: var(--cor-itens);
+    border-radius: 24vh;
+    font-family: 'Rosarivo', serif;
+    font-weight: bolder;
+    font-size: 3vh;
+    border: 0;
+    cursor: pointer;
+    color: var(--cor-fundo);
+    transition: background 0.3s ease;
+}
+
+#start-button:hover {
+    background: var(--cor-itens-secundaria);
+}
+
+main {
+    background-color: blanchedalmond;
+    height: 100vh;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 768px) {
+    #start-button {
+        width: 12em;
+        font-size: 2.5vh;
+    }
+
+    .logo img {
+        max-height: 50vh;
+    }
+}
+
+/* Responsividade para celulares */
+@media (max-width: 480px) {
+    #start-button {
+        width: 100%;
+        max-width: 300px;
+        font-size: 2.2vh;
+        height: 6.5vh;
+    }
+
+    .logo img {
+        max-height: 40vh;
+    }
+}
