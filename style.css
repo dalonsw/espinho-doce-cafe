@@ -4,6 +4,8 @@
     --cor-fundo: #1d3927;
     --cor-itens: #a58630;
     --cor-itens-secundaria: #80651d;
+    --cor-background-2: #efd1a5;
+    --cor-background: #7a5213;
 }
 
 * {
@@ -12,8 +14,19 @@
     box-sizing: border-box;
 }
 
+html, body {
+    overflow: auto;
+    scrollbar-width: none;      
+    -ms-overflow-style: none;
+}
+
 body {
     font-family: 'Rosarivo', serif;
+}
+
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none; 
 }
 
 header {
@@ -28,41 +41,53 @@ header {
     padding: 2vh;
 }
 
-.logo {
+.start {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2vh;
     text-align: center;
+    justify-content: center;
 }
 
-.logo img {
+.start #logo {
     max-height: 60vh;
     width: auto;
     max-width: 90vw;
 }
 
-#start-button {
-    width: 15em;
-    height: 7.5vh;
-    background: var(--cor-itens);
-    border-radius: 24vh;
-    font-family: 'Rosarivo', serif;
-    font-weight: bolder;
-    font-size: 3vh;
-    border: 0;
-    cursor: pointer;
-    color: var(--cor-fundo);
-    transition: background 0.3s ease;
+.enter {
+    position: absolute;
+    bottom: 0;
+    animation: pular 2.5s infinite;
 }
 
-#start-button:hover {
-    background: var(--cor-itens-secundaria);
+.enter h3 {
+    font-size: 3vh;
+    color: var(--cor-itens)
+}
+
+.enter img {
+    width: 50px;
 }
 
 main {
-    background-color: blanchedalmond;
+    background: url(src/images/background-principal.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90vw;
+    height: 90vh;
+    background-color: var(--cor-background-2);
+    border-radius: 15px;
 }
 
 /* Responsividade para tablets */
@@ -72,7 +97,7 @@ main {
         font-size: 2.5vh;
     }
 
-    .logo img {
+    .start #logo {
         max-height: 50vh;
     }
 }
@@ -86,7 +111,17 @@ main {
         height: 6.5vh;
     }
 
-    .logo img {
+    .start #logo {
         max-height: 40vh;
+    }
+}
+
+@keyframes pular {
+    0%, 100% {
+        bottom: 15px;
+    }
+
+    50% {
+        bottom: 5px;
     }
 }
