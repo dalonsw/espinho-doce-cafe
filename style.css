@@ -90,32 +90,6 @@ main {
     border-radius: 15px;
 }
 
-/* Responsividade para tablets */
-@media (max-width: 768px) {
-    #start-button {
-        width: 12em;
-        font-size: 2.5vh;
-    }
-
-    .start #logo {
-        max-height: 50vh;
-    }
-}
-
-/* Responsividade para celulares */
-@media (max-width: 480px) {
-    #start-button {
-        width: 100%;
-        max-width: 300px;
-        font-size: 2.2vh;
-        height: 6.5vh;
-    }
-
-    .start #logo {
-        max-height: 40vh;
-    }
-}
-
 @keyframes pular {
     0%, 100% {
         bottom: 15px;
