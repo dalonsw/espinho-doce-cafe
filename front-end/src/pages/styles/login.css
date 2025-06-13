@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    background: url(../../images/background-principal.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap-reverse;
+    
+}
+
+.container {
+    width: 27em;
+}
+
+.login-conteudo {
+    height: 100%;
+    background: var(--cor-fundo);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2vh;
+    color: var(--cor-itens);
+    text-align: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+}
+
+.login > h3, .cadastro > h4 {
+    margin: 5px;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+#login-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 230px;
+    font-size: 1em;
+}
+
+button {
+    width: 230px;;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: var(--cor-button);
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+}
+
+button:hover {
+    background-color: var(--cor-button-hover);
+}
+
+#logo {
+    width: 180px;
+
+}
+

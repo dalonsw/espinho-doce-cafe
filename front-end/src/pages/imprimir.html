@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌵 Imprimir Pedido | Espinho Doce ☕</title>
+    <link rel="stylesheet" href="styles/imprimir.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/icons/favicon-16x16.png">
+    <link rel="manifest" href="../images/icons/site.webmanifest">
+</head>
+<body>
+    <main>
+        <div class="pedido">
+            <p>+ ------------------------------- +</p>
+            <div class="logo-estabelecimento">
+                <img src="../images/logo-impressao.png" alt="">
+            <h3>Espinho Doce Cafeteria</h3>
+            </div>
+            <div class="estabelecimento-infos">
+                <p>CNPJ: <span id="cnpj">XX.XXX.XXX/XXXX-XX</span></p>
+                <p id="endereco">Rua João Paulo II, 440, Jatobá</p>
+                <p>Riachão do Jacuípe-BA</p>
+                <p>Telefone: <span id="telefone">(75) 99183-4795</span></p>
+            </div>
+            <p>+ ------------------------------- +</p>
+            <div class="cliente-infos">
+                <h4>Cliente: <span id="cliente-nome">Daniel Alonso</span></h4>
+                <h5>Endereço: <span id="cliente-endereco">Rua João Paulo II, 440, Jatobá, Riachão do Jacuípe-BA</span></h5>
+                <h5>Telefone: <span id="cliente-telefone">(75) 99183-4795</span></h5>
+            </div>
+            <p>+ ------------------------------- +</p>
+            <div class="pedido-infos">
+                <h5>Data: <span id="data-pedido">16/05/2025</span> | Horário: <span>19:55</span></h5>
+                <h4>Pedido:</h4>
+                <div class="itens-pedido">
+                    <table>
+                        <colgroup>
+                            <col style="width: 15%;">
+                            <col style="width: 60%;">
+                            <col style="width: 25%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Qnt</th>
+                                <th>Item</th>
+                                <th>Valor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2</td>
+                                <td>Menorzinho</td>
+                                <td>R$3,00</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Cappuccino</td>
+                                <td>R$3,50</td>
+                            </tr>
+                        </tbody>
+                        <tr>
+                            <td style="opacity: 0;">-</td>
+                            <td style="opacity: 0;">-</td>
+                            <td style="opacity: 0;">-</td>
+                        </tr>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2" style="text-align: end;">Taxa Entrega:</td>
+                                <td>R$3,00</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="text-align: end;"><strong>Total:</strong></td>
+                                <td><strong>R$9,50</strong></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <p>+ ------------------------------- +</p>
+                <p style="text-align: center; font-size: 9pt;">Forma pagamento: <span id="metodo-pagamento">DINHEIRO</span></p>
+                <p style="text-align: center; font-size: 8pt;">Troco: R$0,50</p>
+                <p>+ ------------------------------- +</p>
+                <p style="text-align: start;"><strong>OBS: </strong><span id="observacao-pedido">Café com bastante açúcar</span></p>
+            </div>
+            <p>+ ------------------------------- +</p>
+        </div>
+    </main>
+    <script type="module" src="scripts/imprimir.js"></script>
+</body>
+</html>

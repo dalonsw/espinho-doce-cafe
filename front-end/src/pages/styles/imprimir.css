@@ -1,0 +1,55 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        @media print {
+            @page {
+            size: 58mm auto;
+            margin: 0;
+            }
+        }
+        img {
+            width: 85px;
+        }
+        body {
+            font-family: m;
+            background-color: #3c3c3c;
+            
+        }
+
+        .logo-estabelecimento {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pedido {
+            width: 58mm;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 5px;
+            background-color: #fff;
+        }
+
+        .pedido-infos > h5 {
+            text-align: center;
+        }
+        .no-print {
+            display: none;
+        }
+
+        h3 {
+            font-size: 11pt;
+            margin: 3px;
+        }
+
+        p{
+            font-size: 8pt;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            text-align: center;
+        }

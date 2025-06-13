@@ -6,6 +6,8 @@
     --cor-itens-secundaria: #80651d;
     --cor-background-2: #efd1a5;
     --cor-background: #7a5213;
+    --cor-button: #a58630;
+    --cor-button-hover: #80651d;
 }
 
 * {
@@ -81,21 +83,71 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap-reverse;
+    
 }
 
 .container {
-    width: 90vw;
-    height: 90vh;
+    height: 35em;
     background-color: var(--cor-background-2);
     border-radius: 15px;
+    margin: 10px
+}
+
+#cardapio {
+    width: 45em;
+}
+
+#usuario {
+    width: 17em;
+}
+
+.usuario-conteudo {
+    height: 11vh;
+    background: var(--cor-background);
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.usuario-conteudo > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.usuario-conteudo > h3 {
+    color: #fff;
+}
+
+@media (max-width: 1035px) {
+    main {
+        gap: 5px;
+        align-content: center;
+    }
+
+    .container {
+        width: 80vw !important;
+        height: 30em;
+    }
+
+    #pedido {
+        height: 28em;
+    }
+
+    #usuario {
+        height: 7em;
+    }
 }
 
 @keyframes pular {
     0%, 100% {
-        bottom: 15px;
+        bottom: 5px;
     }
 
     50% {
-        bottom: 5px;
+        bottom: 10px;
     }
 }
