@@ -4,26 +4,18 @@
     box-sizing: border-box;
 }
 
-main {
-    background: url(../../images/background-principal.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap-reverse;
-    
+.login-container {
+    max-height: 80vh;
+    max-width: 90vw;
+    background-color: var(--cor-fundo);
+    border-radius: 15px;
+    margin: 10px
 }
 
-.container {
-    width: 27em;
-}
-
-.login-conteudo {
+.login-conteudo, .cadastro-conteudo {
+    width: 100%;
+    padding: 5vh 5vw;
     height: 100%;
-    background: var(--cor-fundo);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -34,7 +26,7 @@ main {
     text-align: center;
 }
 
-.login-container {
+.login-formulario {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,22 +37,38 @@ main {
     margin: 5px;
 }
 
-#login-form {
+.login-form {
     display: flex;
     flex-direction: column;
     gap: 1vh;
+    align-items: center;
 }
 
-#login-form input {
+.login-form input {
     padding: 10px;
     border-radius: 5px;
     border: none;
-    width: 230px;
-    font-size: 1em;
+    width: 100%;
+    font-size: 10pt;
+    
+}
+
+#cadastro-form div {
+    display: flex;
+    gap: 1vw;
+    align-items: flex-end;
+    width: 100%;
+}
+
+hr {
+    width: 100%;
+    border: 0;
+    border-top: 2px solid var(--cor-itens);
+    margin: 5px 0;
 }
 
 button {
-    width: 230px;;
+    width: 100%;
     padding: 10px;
     border-radius: 5px;
     background-color: var(--cor-button);
@@ -74,8 +82,33 @@ button:hover {
     background-color: var(--cor-button-hover);
 }
 
+#toggle-password {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+}
+
+#toggle-password img {
+    width: 20px;
+    height: 20px;
+}
+
 #logo {
     width: 180px;
 
 }
 
+.data-nascimento {
+    display: inline !important; 
+    flex-direction: column;
+    font-size: 8pt;
+    align-items: center !important;
+}
+
+.data-nascimento label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}

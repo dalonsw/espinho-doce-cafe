@@ -17,11 +17,12 @@ document.addEventListener('scroll', () => {
 
 // Variaveis de Usuário
 const usuarioNome = document.getElementById('esta-logado')
+const usuario = JSON.parse(localStorage.getItem('usuario'))
 
 // Função para buscar usuário logado
-async function buscarUsuario() {
+async function buscarUsuario(usuario) {
     try {
-        const response = await fetch(`http://localhost:8080/usuarios/alice@gmail.com`, {
+        const response = await fetch(`http://localhost:8080/usuarios/${usuario.email}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,16 +35,16 @@ async function buscarUsuario() {
         return;
         }
 
-        const usuario = await response.json();
-        return usuario || null;
+        const usuarioLogado = await response.json();
+        return usuarioLogado || null;
     } catch (error) {
         console.error('Erro ao buscar usuário:', error);
         return null;
     }
 }
 
-const usuarioLogado = await buscarUsuario();
+const usuarioLogado = await buscarUsuario(usuario);
 
 if (usuarioLogado) {
-    usuarioNome.textContent = `Olá ${usuarioLogado.primeiro_nome}! :)`;
+    usuarioNome.textContent = `Olá ${usuario.primeiro_nome}! :)`;
 }

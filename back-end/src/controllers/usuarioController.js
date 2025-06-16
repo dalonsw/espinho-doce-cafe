@@ -1,6 +1,9 @@
+// Configuração do banco de dados
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('back-end/src/database/cafeteria.db');
 
+//Usuarios
+// Criar usuario
 function criarUsuario(usuario, callback) {
     const { primeiro_nome, sobrenome, telefone, email, data_nascimento, senha } = usuario;
     const imagem = ['./images/user-image1.png', './images/user-image2.png'][Math.floor(Math.random() * 2)];
@@ -16,6 +19,7 @@ function criarUsuario(usuario, callback) {
     });
 }
 
+// Buscar usuário por email e senha
 function buscarUsuarioPorEmailESenha(email, senha, callback) {
     const sql = `SELECT * FROM usuarios WHERE email = ? AND senha = ?`;
     db.get(sql, [email, senha], (err, row) => {
@@ -23,6 +27,15 @@ function buscarUsuarioPorEmailESenha(email, senha, callback) {
     });
 }
 
+function buscarUsuarioPorEmail(email, callback) {
+    const sql = `SELECT * FROM usuarios WHERE email = ?`;
+    db.get(sql, [email], (err, row) => {
+        callback(err, row);
+    });
+}
+
+
+// Listar todos os usuários
 function listarUsuarios(callback) {
     db.all(`SELECT * FROM usuarios`, [], (err, rows) => {
         callback(err, rows);
@@ -30,6 +43,7 @@ function listarUsuarios(callback) {
 }
 
 //Endereços
+// Criar endereço
 function criarEndereco(endereco, callback) {
     const { rua, numero, complemento, bairro, cidade, estado, cep, id_usuario } = endereco;
     const insert = `
@@ -44,19 +58,22 @@ function criarEndereco(endereco, callback) {
     });
 }
 
+// Listar todos os endereços
 function listarEnderecos(callback) {
     db.all(`SELECT * FROM enderecos`, [], (err, rows) => {
         callback(err, rows);
     });
 }
 
+// Buscar endereços por ID
 function buscarEnderecoPorId(id, callback) {
-    const sql = `SELECT * FROM enderecos WHERE id = ?`;
+    const sql = `SELECT * FROM enderecos WHERE id= ?`;
     db.get(sql, [id], (err, row) => {
         callback(err, row);
     });
 }
 
+// Atualizar endereço
 function atualizarEndereco(id, endereco, callback) {
     const { rua, numero, complemento, bairro, cidade, estado, cep } = endereco;
     const update = `
@@ -72,6 +89,7 @@ function atualizarEndereco(id, endereco, callback) {
     });
 }
 
+// Deletar endereço
 function deletarEndereco(id, callback) {
     const sql = `DELETE FROM enderecos WHERE id = ?`;
     db.run(sql, [id], function(err) {
@@ -82,6 +100,7 @@ function deletarEndereco(id, callback) {
     });
 }
 
+// Atribuir endereço a um usuário
 function atribuirEnderecoAUsuario(id_usuario, id_endereco, callback) {
     const sql = `INSERT INTO endereco_usuario (id_usuario, id_endereco) VALUES (?, ?)`;
     db.run(sql, [id_usuario, id_endereco], function(err) {
@@ -92,6 +111,7 @@ function atribuirEnderecoAUsuario(id_usuario, id_endereco, callback) {
     });
 }
 
+// Remover endereço de um usuário
 function removerEnderecoDeUsuario(id_usuario, id_endereco, callback) {
     const sql = `DELETE FROM endereco_usuario WHERE id_usuario = ? AND id_endereco = ?`;
     db.run(sql, [id_usuario, id_endereco], function(err) {
@@ -102,6 +122,7 @@ function removerEnderecoDeUsuario(id_usuario, id_endereco, callback) {
     });
 }
 
+// Listar usuários com seus endereços
 function listarUsuariosComEndereco(callback) {
     const sql = `
         SELECT e.*, u.primeiro_nome, u.segundo_nome, u.email
@@ -117,6 +138,7 @@ function listarUsuariosComEndereco(callback) {
 module.exports = {
     criarUsuario,
     buscarUsuarioPorEmailESenha,
+    buscarUsuarioPorEmail,
     listarUsuarios,
     criarEndereco,
     listarEnderecos,

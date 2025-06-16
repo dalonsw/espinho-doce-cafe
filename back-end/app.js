@@ -18,7 +18,7 @@ app.use(cors({
 const usuarioController = require('./src/controllers/usuarioController')
 
 // Cadastro de Usuários
-app.post('/usuarios', (req, res) => {
+app.post('/cadastrar', (req, res) => {
     const { primeiro_nome, sobrenome, telefone, email, senha, data_nascimento } = req.body;
     const usuario = { primeiro_nome, sobrenome, telefone, email, senha, data_nascimento};
     console.log(req.body)
@@ -31,12 +31,26 @@ app.post('/usuarios', (req, res) => {
     })
 })
 
+// Listar Usuários
 app.get('/usuarios', (req, res) => {
     usuarioController.listarUsuarios((err, usuarios) => {
         if (err) {
                 return res.status(500).json({ error: 'Erro ao listar usuários' })
             }
         res.status(200).json(usuarios)
+    })
+})
+
+app.get('/usuarios/:email', (req, res) => {
+    const email = req.params.email
+    usuarioController.buscarUsuarioPorEmail(email, (err, usuario) => {
+        if (err) {
+            return res.status(500).json({ error: 'Erro ao buscar usuário' })
+        }
+        if (!usuario) {
+            return res.status(404).json({ error: 'Usuário não encontrado' })
+        }
+        res.status(200).json(usuario)
     })
 })
 

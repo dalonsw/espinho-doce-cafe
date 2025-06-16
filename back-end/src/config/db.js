@@ -1,3 +1,4 @@
+// Configuração e inicialização do banco de dados
 const sqlite3 = require('sqlite3')
 const banco = 'back-end/src/database/cafeteria.db'
 const db = new sqlite3.Database(banco, (err) => {
@@ -8,6 +9,8 @@ const db = new sqlite3.Database(banco, (err) => {
     }
 });
 
+
+// Criar tabelas no banco de dados
 const criarTabelas = () => {
     db.run(`
         CREATE TABLE IF NOT EXISTS usuarios(
@@ -92,12 +95,15 @@ const criarTabelas = () => {
     `)
 } 
 
+// Abrir conexão com o banco de dados e criar tabelas
 const abrirConexao = () => {
     db.serialize(() => {
         criarTabelas();
     });
 }
 
+
+// Fechar conexão com o banco de dados
 const fecharConexao = () => {
     db.close((err) => {
         if (err) {

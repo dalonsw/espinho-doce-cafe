@@ -3,8 +3,9 @@ const clienteNome = document.getElementById('cliente-nome');
 const clienteEndereco = document.getElementById('cliente-endereco');
 const clienteTelefone = document.getElementById('cliente-telefone');
 
-async function imprimirPedido() {
-    const response = await fetch('http://localhost:8080/usuarios/alice@gmail.com', {
+// Colocar os dados do pedido na tela e imprimir o pedido
+async function imprimirPedido(idUsuario) {
+    const response = await fetch(`http://localhost:8080/usuarios/${idUsuario}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
